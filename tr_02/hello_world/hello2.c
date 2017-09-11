@@ -37,6 +37,11 @@ static int __init hello_init(void)
         {
             print_hello();
         }
+
+	if (counter == 2)
+        {
+            try_module_get(THIS_MODULE);
+        } 
     }
     return 0;
 }

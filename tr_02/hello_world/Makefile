@@ -1,9 +1,6 @@
-ifneq ($(KERNELRELEASE),)
-# kbuild part of makefile
-obj-m   := hello1.o
-obj-m   := hello2.o
 
-ccflags-y := -Iinc
+ifneq ($(KERNELRELEASE),)
+include Kbuild
 else
 # normal makefile
 KDIR ?= /lib/modules/`uname -r`/build

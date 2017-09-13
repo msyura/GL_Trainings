@@ -28,11 +28,14 @@ static int __init hello_init(void)
 	WARN_ON(nr_print == 0);
 	if (nr_print == 5) {
 		return -EINVAL;
-	} else if (nr_print > 0 && nr_print < 10)	{
-		uint i = 0;
+	} else {
+		if (nr_print > 0 && nr_print < 10) {
+			uint i = 0;
 
-		for (i = 0; i < nr_print; i++)
-			print_hello();
+			for (i = 0; i < nr_print; i++)
+				print_hello();
+		}
+	}
 
 	if (nr_print == 2)
 		try_module_get(THIS_MODULE);
